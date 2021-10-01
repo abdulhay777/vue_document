@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <div id="app">
+            <!-- @click.prevent = preventDefault() -->
+            <a href="https://google.com" target="_blank" @click.prevent="">google</a>
+            <!-- stop methods -->
+            <h2 @mousemove="move">
+                X: {{ x }} / Y: {{ y }}
+                <span @mousemove.stop>Stop method</span>
+            </h2>
+        </div>
+        
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                x: 0, 
+                y: 0
+            },
+            methods: {
+                // clickLink: function (e) {
+                //     e.preventDefault();
+                // }
+                move: function (e) {
+                    this.y = e.clientY
+                    this.x = e.clientX
+                }
+            },
+        })
+
+    </script>
+
+</html>
