@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <div id="app">
+            <my-tag></my-tag>
+        </div>
+
+        <hr>
+
+        <div id="app2">
+            <my-tag></my-tag>
+        </div>
+        
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script>
+
+        let tag = {
+            template: `
+                <div>
+                    <h2>{{ num }}</h2>
+                    <button @click="num++">Click</button>   
+                </div>
+            `,
+            data: () => ({
+                num: 0
+            })
+        }
+
+        new Vue({
+            el: '#app',
+            components: {
+                myTag: tag
+            }
+        })
+
+        new Vue({
+            el: '#app2'
+        })
+
+    </script>
+
+</html>

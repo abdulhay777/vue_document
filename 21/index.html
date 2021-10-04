@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <div id="app">
+            <h2>{{ title }}</h2>
+            <button @click="title = 'Good'">Click</button>
+            <button @click="des">Click</button>
+        </div>
+        
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script>
+
+        const vue = new Vue({
+            data: {
+                title: 'Hello'
+            },
+            methods: {
+                des: function () {
+                    this.$destroy()
+                }
+            },
+            beforeCreate() {
+                // перед созданием приложения
+                console.log('beforeCreate')
+            },
+            created() {
+                // после создания приложения
+                console.log('created')
+            },
+            beforeMount() {
+                // перед анализом данных которые мы ему дали и пытаестя вставить все в '#app'
+                console.log('beforeMount')
+            },
+            mounted() {
+                // после анализа данных которые мы ему дали и вставить все в '#app'
+                console.log('mounted')
+            },
+            beforeUpdate() {
+                // перед обновлением переменого
+                console.log('beforeUpdate')
+            },
+            updated() {
+                 // после обновления переменого
+                console.log('updated')
+            },
+            beforeDestroy() {
+                // перед уничтожением программы
+                console.log('beforeDestroy')
+            },
+            destroyed() {
+                // после уничтожения программы
+                console.log('destroyed')
+            },
+        })
+
+        vue.$mount('#app')
+
+    </script>
+
+</html>
