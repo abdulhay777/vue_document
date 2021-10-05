@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <h1>First car: {{ lists[0].name }}</h1>
+        <Counter></Counter>
         <Car v-for="(list, i) in lists" :key="i" :carName="list.name" :carDesc="list.desc" :carYear="list.year" @nameChange="list.name = $event"></Car>
     </div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 
     import Car from './Car.vue'
+    import Counter from './Counter.vue'
 
     export default {
         name: 'app',
@@ -20,7 +22,8 @@
             ]
         }),
         components: {
-            Car
+            Car,
+            Counter
         }
     }
 </script>
